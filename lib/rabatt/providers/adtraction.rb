@@ -16,7 +16,20 @@ module Rabatt
 
       def initialize(api_key = nil)
         self.api_key = api_key || ENV['ADTRACTION_API_KEY']
-        raise(ArgumentError, 'Missing ApiKey') unless api_key
+        raise(ArgumentError, 'Missing ApiKey') unless self.api_key
+      end
+
+      def parse(payload)
+        payload.map do |data|
+          Voucher.new.tap do |v|
+            v.title = data['programName']
+            v.code = data['offerCoupon']
+            v.valid_from = data['validFrom']
+            v.expires_at = data['validTo']
+            v.summary = data['offerDescription']
+            v.terms = data['offerTerms']
+          end
+        end
       end
 
       def coupons(channel_id, market: DEFAULT_MARKET)
@@ -33,7 +46,13 @@ module Rabatt
         request.body = JSON.dump(data)
 
         response = http.request(request)
-        data = JSON.parse(response.body)
+        payload = JSON.parse(response.body)
+
+        if payload.is_a?(Hash) && payload.has_key?('error')
+          raise(RequestError, payload['error'])
+        else
+          parse(payload)
+        end
 
       end
 
