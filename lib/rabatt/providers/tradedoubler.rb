@@ -9,6 +9,10 @@ module Rabatt
 
       ENDPOINT = 'http://api.tradedoubler.com/1.0/vouchers.json?token=%s'
 
+      DEFAULT_PARAMS = {
+        voucherTypeId: '1'
+      }
+
       def initialize()
       end
 
@@ -17,7 +21,9 @@ module Rabatt
       end
 
       def coupons(token)
-        res = open(ENDPOINT % token)
+        uri = URI.parse(ENDPOINT % token)
+        uri.query = URI.encode_www_form(DEFAULT_PARAMS)
+        res = open(uri)
         JSON.parse(res.read).map do |data|
           Voucher.new.tap do |v|
             v.program = data['programName']
