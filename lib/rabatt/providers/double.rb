@@ -5,7 +5,7 @@ require 'open-uri'
 
 module Rabatt
   module Providers
-    class Double
+    class Double < Base
 
       ENDPOINT = 'https://www.double.net/api/publisher/v2/coupons/?format=json'
 

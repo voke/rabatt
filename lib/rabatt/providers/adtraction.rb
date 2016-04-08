@@ -7,7 +7,7 @@ require 'json'
 
 module Rabatt
   module Providers
-    class Adtraction < Providers::Base
+    class Adtraction < Base
 
       ENDPOINT = 'https://api.adtraction.com/v1/affiliate/couponcodes'
       DEFAULT_MARKET = 'SE'

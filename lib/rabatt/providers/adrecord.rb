@@ -3,7 +3,7 @@ require 'saxerator'
 
 module Rabatt
   module Providers
-    class Adrecord
+    class Adrecord < Base
 
       ENDPOINT = 'https://www.adrecord.com/api/discountCodes.xml?c=%d'
 
