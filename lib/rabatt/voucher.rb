@@ -2,7 +2,9 @@ module Rabatt
   class Voucher
 
     ATTRIBUTES = %i(title code expires_at valid_from url summary terms program)
+
     attr_accessor *ATTRIBUTES
+    attr_accessor :payload
 
     def self.build(&block)
       new.tap(&block)
