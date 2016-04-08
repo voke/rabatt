@@ -1,5 +1,6 @@
 require "rabatt/version"
 
+require 'rabatt/voucher'
 require 'rabatt/providers/base'
 require 'rabatt/providers/adtraction'
 require 'rabatt/providers/adrecord'
