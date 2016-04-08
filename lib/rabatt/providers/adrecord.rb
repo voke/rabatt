@@ -16,10 +16,11 @@ module Rabatt
         parser.for_tag(:discountcode).map do |item|
           Voucher.new.tap do |v|
             v.program = item['program']
-            v.summary = item['descriptions']
+            v.summary = item['description']
             v.code = item['code']
-            v.expires_at = item['to']
-            v.valid_from = item['from']
+            v.expires_at = Date.parse(item['to'])
+            v.valid_from = Date.parse(item['from'])
+            v.url = item['url']
           end
         end
       end

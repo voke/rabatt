@@ -51,13 +51,12 @@ module Rabatt
       def parse(payload)
         JSON.parse(payload)['incentiveItems']['incentiveItem'].map do |data|
           Voucher.new.tap do |v|
-            v.title = data['name']
-            v.summary = data['description']
+            v.summary = data['name']
             v.code = data['couponCode']
             v.program = data['program']['$']
             v.terms = data['info4customer']
-            v.valid_from = data['startDate']
-            v.expires_at = data['endDate']
+            v.valid_from = Date.parse(data['startDate'])
+            v.expires_at = Date.parse(data['endDate'])
           end
         end
       end

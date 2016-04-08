@@ -19,12 +19,11 @@ module Rabatt
       def coupons
         res = open(ENDPOINT, 'Authorization' => "Token #{api_key}")
         JSON.parse(res.read).map do |data|
-          p data
           Voucher.new.tap do |v|
             v.program = data['program_name']
             v.code = data['code']
-            v.valid_from = data['start_date']
-            v.expires_at = data['end_date']
+            v.valid_from = Date.parse(data['start_date'])
+            v.expires_at = Date.parse(data['end_date'])
             v.summary = data['description']
           end
         end
