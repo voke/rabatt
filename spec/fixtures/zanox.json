@@ -1,0 +1,60 @@
+{
+  "page": 0,
+  "items": 994,
+  "total": 994,
+  "incentiveItems": {
+    "incentiveItem": [
+      {
+        "@id": "712773",
+        "name": "Oh, Calcutta!",
+        "program": {
+          "@id": "2622",
+          "$": "Kwik-E-Mart"
+        },
+        "admedia": {
+          "admediumItem": {
+            "@id": "127692",
+            "name": "Banner 120x60",
+            "adrank": 2,
+            "admediumType": "image",
+            "program": {
+              "@id": "2622",
+              "$": "Kwik-E-Mart"
+            },
+            "title": "www.example.com",
+            "height": 60,
+            "width": 120,
+            "format": {
+              "@id": "12",
+              "$": "120 x 60 IMU Button #2"
+            },
+            "code": "",
+            "category": {
+              "@id": "11796",
+              "$": "Foobar"
+            },
+            "trackingLinks": ""
+          }
+        },
+        "incentiveType": "freeProducts",
+        "regions": [
+          {
+            "region": "DE"
+          }
+        ],
+        "createDate": "2016-04-08T10:17:37.533+02:00",
+        "modifiedDate": "2016-04-08T13:31:51.863+02:00",
+        "startDate": "2016-04-11T00:00:00+02:00",
+        "endDate": "2016-04-17T23:59:59+02:00",
+        "info4publisher": "Lorem ipsum",
+        "info4customer": "Silly customer, you cannot hurt a Twinkie",
+        "couponCode": "COMEAGAIN",
+        "currency": "EUR",
+        "restrictions": "",
+        "newCustomerOnly": false,
+        "minimumBasketValue": 25,
+        "prizes": ""
+      }
+    ]
+  }
+}

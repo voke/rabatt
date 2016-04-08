@@ -1,0 +1,29 @@
+[
+  {
+    "programName": "Dunder mifflin",
+    "programId": 1234567890,
+    "programURL": "http://www.example.com",
+    "logoURL": "https://secure.adtraction.com/image.htm?imgId=1234567890",
+    "market": "SE",
+    "offerDescription": "That's was she said",
+    "validFrom": "2016-04-05T00:00:00+0200",
+    "validTo": "2016-04-10T00:00:00+0200",
+    "offerPage": "http://www.example.com/campaign",
+    "trackingURL": "https://track.adtraction.com/t/t?a=12345&as=6789&t=2&tk=1",
+    "offerType": 2
+  },
+  {
+    "programName": "Kwik-E-Mart",
+    "programId": 111222333444,
+    "programURL": "http://www.example.com",
+    "logoURL": "https://secure.adtraction.com/image.htm?imgId=111222333444",
+    "market": "SE",
+    "offerCoupon": "COMEAGAIN",
+    "offerDescription": "Oh, Calcutta!",
+    "validFrom": "2016-03-30T00:00:00+0200",
+    "validTo": "2016-04-14T00:00:00+0200",
+    "offerTerms": "Silly customer, you cannot hurt a Twinkie",
+    "trackingURL": "https://track.adtraction.com/t/t?a=54321&as=9876&t=2&tk=1",
+    "offerType": 1
+  }
+]

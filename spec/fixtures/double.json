@@ -1,0 +1,32 @@
+[
+  {
+    "id": 111,
+    "program": 333,
+    "program_name": "Dunder mifflin",
+    "code": "FREEPAPER",
+    "start_date": "2016-01-15",
+    "end_date": "2016-04-20",
+    "description": "That's was she said",
+    "tracking": [
+      {
+        "url": "http:\/\/track.double.net\/click\/?channel=123&coupon=456",
+        "channel": 123
+      }
+    ]
+  },
+  {
+    "id": 222,
+    "program": 444,
+    "program_name": "Kwik-E-Mart",
+    "code": "COMEAGAIN",
+    "start_date": "2016-02-29",
+    "end_date": "2016-04-30",
+    "description": "Oh, Calcutta!",
+    "tracking": [
+      {
+        "url": "http:\/\/track.double.net\/click\/?channel=789&coupon=456",
+        "channel": 789
+      }
+    ]
+  }
+]
