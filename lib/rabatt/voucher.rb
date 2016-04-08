@@ -4,6 +4,9 @@ module Rabatt
     ATTRIBUTES = %i(title code expires_at valid_from url summary terms program)
     attr_accessor *ATTRIBUTES
 
+    def self.build(&block)
+      new.tap(&block)
+    end
 
     def attributes
       Hash[ATTRIBUTES.map { |key| [key, send(key)] }]

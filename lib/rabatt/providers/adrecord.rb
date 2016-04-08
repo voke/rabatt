@@ -14,7 +14,7 @@ module Rabatt
         res = open(ENDPOINT % channel_id)
         parser = Saxerator.parser(res.read)
         parser.for_tag(:discountcode).map do |item|
-          Voucher.new.tap do |v|
+          Voucher.build do |v|
             v.program = item['program']
             v.summary = item['description']
             v.code = item['code']

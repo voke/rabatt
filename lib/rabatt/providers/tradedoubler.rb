@@ -25,7 +25,7 @@ module Rabatt
         uri.query = URI.encode_www_form(DEFAULT_PARAMS)
         res = open(uri)
         JSON.parse(res.read).map do |data|
-          Voucher.new.tap do |v|
+          Voucher.build do |v|
             v.program = data['programName']
             v.code = data['code']
             v.valid_from = epoch_to_date(data['startDate'])
