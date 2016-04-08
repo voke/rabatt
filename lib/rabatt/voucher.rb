@@ -10,6 +10,10 @@ module Rabatt
       new.tap(&block)
     end
 
+    def code?
+      code && !code.empty?
+    end
+
     def attributes
       Hash[ATTRIBUTES.map { |key| [key, send(key)] }]
     end
