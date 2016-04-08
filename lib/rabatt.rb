@@ -15,13 +15,18 @@ module Rabatt
     providers[provider_klass.identifier] = provider_klass
   end
 
+  def self.instantiate_provider(provider_name)
+    provider_class = Rabatt.providers.fetch(provider_name.to_s) do |missing_name|
+      raise(Rabatt::MissingProviderError,
+        "Provider #{missing_name.inspect} does not exist!")
+    end
+    provider_class.new
+  end
+
 end
 
 require 'rabatt/providers'
 
 def Rabatt(provider_name)
-  provider_class = Rabatt.providers.fetch(provider_name.to_s) do |missing_name|
-    raise(Rabatt::MissingProviderError, "Provider #{missing_name.inspect} does not exist!")
-  end
-  provider_class.new
+  Rabatt.instantiate_provider(provider_name)
 end
