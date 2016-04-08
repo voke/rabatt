@@ -16,7 +16,7 @@ describe Rabatt::Voucher do
       voucher.code?.must_equal false
     end
 
-    it 'returns Nil when blank' do
+    it 'returns False when blank' do
       voucher = Voucher.new
       voucher.code ''
       voucher.code?.must_equal false
