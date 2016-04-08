@@ -1,18 +1,27 @@
 require "rabatt/version"
 
 require 'rabatt/voucher'
-require 'rabatt/providers/base'
-require 'rabatt/providers/adtraction'
-require 'rabatt/providers/double'
-require 'rabatt/providers/adrecord'
-require 'rabatt/providers/tradedoubler'
-require 'rabatt/providers/zanox'
 
 module Rabatt
+
   RequestError = Class.new(StandardError)
+  MissingProviderError = Class.new(StandardError)
+
+  def self.providers
+    @@providers ||= {}
+  end
+
+  def self.register(provider_klass)
+    providers[provider_klass.identifier] = provider_klass
+  end
+
 end
 
-def Rabatt(provider_name, options = {})
-  class_name = provider_name.to_s.capitalize
-  Object.const_get("Rabatt::Providers::#{class_name}").new
+require 'rabatt/providers'
+
+def Rabatt(provider_name)
+  provider_class = Rabatt.providers.fetch(provider_name.to_s) do |missing_name|
+    raise(Rabatt::MissingProviderError, "Provider #{missing_name.inspect} does not exist!")
+  end
+  provider_class.new
 end
