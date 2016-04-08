@@ -21,7 +21,7 @@ module Rabatt
         JSON.parse(res.read).map do |data|
           p data
           Voucher.new.tap do |v|
-            v.title = data['program_name']
+            v.program = data['program_name']
             v.code = data['code']
             v.valid_from = data['start_date']
             v.expires_at = data['end_date']

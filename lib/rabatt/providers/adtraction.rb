@@ -22,7 +22,7 @@ module Rabatt
       def parse(payload)
         payload.map do |data|
           Voucher.new.tap do |v|
-            v.title = data['programName']
+            v.program = data['programName']
             v.code = data['offerCoupon']
             v.valid_from = data['validFrom']
             v.expires_at = data['validTo']

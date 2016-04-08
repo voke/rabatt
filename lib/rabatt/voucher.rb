@@ -1,7 +1,7 @@
 module Rabatt
   class Voucher
 
-    attr_accessor :title, :code, :expires_at, :valid_from, :url, :summary, :terms
+    attr_accessor :title, :code, :expires_at, :valid_from, :url, :summary, :terms, :program
 
     def initialize
 
