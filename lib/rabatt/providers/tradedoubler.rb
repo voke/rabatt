@@ -13,9 +13,6 @@ module Rabatt
         voucherTypeId: '1'
       }
 
-      def initialize()
-      end
-
       def epoch_to_date(value)
         Time.at(value.to_i / 1000.0).to_date
       end
