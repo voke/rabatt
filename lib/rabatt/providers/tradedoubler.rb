@@ -9,6 +9,7 @@ module Rabatt
 
       ENDPOINT = 'http://api.tradedoubler.com/1.0/vouchers.json?token=%s'
 
+      # NOTE: http://dev.tradedoubler.com/vouchers/publisher/#Voucher_type_ID
       DEFAULT_PARAMS = {
         voucherTypeId: '1'
       }
