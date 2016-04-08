@@ -19,19 +19,6 @@ module Rabatt
         raise(ArgumentError, 'Missing ApiKey') unless self.api_key
       end
 
-      def parse(payload)
-        payload.map do |data|
-          Voucher.build do |v|
-            v.program = data['programName']
-            v.code = data['offerCoupon']
-            v.valid_from = Date.parse(data['validFrom'])
-            v.expires_at = Date.parse(data['validTo'])
-            v.summary = data['offerDescription']
-            v.terms = data['offerTerms']
-          end
-        end
-      end
-
       def vouchers
         vouchers_by_channel(nil)
       end
@@ -58,6 +45,21 @@ module Rabatt
           parse(payload)
         end
 
+      end
+
+      protected
+
+      def parse(payload)
+        payload.map do |data|
+          Voucher.build do |v|
+            v.program = data['programName']
+            v.code = data['offerCoupon']
+            v.valid_from = Date.parse(data['validFrom'])
+            v.expires_at = Date.parse(data['validTo'])
+            v.summary = data['offerDescription']
+            v.terms = data['offerTerms']
+          end
+        end
       end
 
     end

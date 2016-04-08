@@ -14,10 +14,6 @@ module Rabatt
         voucherTypeId: '1'
       }
 
-      def epoch_to_date(value)
-        Time.at(value.to_i / 1000.0).to_date
-      end
-
       def vouchers_by_channel(token)
         uri = URI.parse(ENDPOINT % token)
         uri.query = URI.encode_www_form(DEFAULT_PARAMS)
@@ -32,6 +28,12 @@ module Rabatt
             v.url = data['landingUrl']
           end
         end
+      end
+
+      protected
+
+      def epoch_to_date(value)
+        Time.at(value.to_i / 1000.0).to_date
       end
 
     end

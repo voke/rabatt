@@ -8,17 +8,8 @@ module Rabatt
       URL = 'https://www.adrecord.com/api/discountCodes.xml?c=%s'
       DATE_FORMAT = '%Y-%m-%d'
 
-      def initialize
-      end
-
       def vouchers
         vouchers_by_channel(nil)
-      end
-
-      def parse_date(value)
-        if !value.is_a?(Saxerator::Builder::EmptyElement)
-          Date.strptime(value, DATE_FORMAT)
-        end
       end
 
       def vouchers_by_channel(channel_id)
@@ -33,6 +24,14 @@ module Rabatt
             v.valid_from = parse_date(item['from'])
             v.url = item['url']
           end
+        end
+      end
+
+      protected
+
+      def parse_date(value)
+        if !value.is_a?(Saxerator::Builder::EmptyElement)
+          Date.strptime(value, DATE_FORMAT)
         end
       end
 

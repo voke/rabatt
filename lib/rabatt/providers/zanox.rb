@@ -50,6 +50,8 @@ module Rabatt
 
       end
 
+      protected
+
       def parse(payload)
         JSON.parse(payload)['incentiveItems']['incentiveItem'].map do |data|
           Voucher.build do |v|
