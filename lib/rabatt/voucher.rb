@@ -1,7 +1,7 @@
 module Rabatt
   class Voucher
 
-    ATTRIBUTES = %i(title code expires_on valid_from url summary terms program)
+    ATTRIBUTES = %i(code expires_on valid_from url summary terms program)
 
     attr_accessor *ATTRIBUTES
     attr_accessor :payload
