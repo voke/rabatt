@@ -20,7 +20,7 @@ module Rabatt
             v.program = item['program']
             v.summary = item['description']
             v.code = item['code']
-            v.expires_at = parse_date(item['to'])
+            v.expires_on = parse_date(item['to'])
             v.valid_from = parse_date(item['from'])
             v.url = item['url']
           end

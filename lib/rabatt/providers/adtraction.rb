@@ -55,7 +55,7 @@ module Rabatt
             v.program = data['programName']
             v.code = data['offerCoupon']
             v.valid_from = Date.parse(data['validFrom'])
-            v.expires_at = Date.parse(data['validTo'])
+            v.expires_on = Date.parse(data['validTo'])
             v.summary = data['offerDescription']
             v.terms = data['offerTerms']
           end

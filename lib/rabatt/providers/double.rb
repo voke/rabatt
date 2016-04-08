@@ -31,7 +31,7 @@ module Rabatt
             v.program = data['program_name']
             v.code = data['code']
             v.valid_from = Date.parse(data['start_date'])
-            v.expires_at = Date.parse(data['end_date'])
+            v.expires_on = Date.parse(data['end_date'])
             v.summary = data['description']
             v.payload = data
           end

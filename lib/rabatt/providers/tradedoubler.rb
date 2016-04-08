@@ -23,7 +23,7 @@ module Rabatt
             v.program = data['programName']
             v.code = data['code']
             v.valid_from = epoch_to_date(data['startDate'])
-            v.expires_at = epoch_to_date(data['endDate'])
+            v.expires_on = epoch_to_date(data['endDate'])
             v.summary = data['description']
             v.url = data['landingUrl']
           end

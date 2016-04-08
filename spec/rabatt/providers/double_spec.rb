@@ -28,7 +28,7 @@ describe Rabatt::Providers::Double do
       voucher.summary.must_equal "That's was she said"
       voucher.code.must_equal 'FREEPAPER'
       voucher.valid_from.must_equal Date.parse("2016-01-15")
-      voucher.expires_at.must_equal Date.parse("2016-04-20")
+      voucher.expires_on.must_equal Date.parse("2016-04-20")
 
     end
 
