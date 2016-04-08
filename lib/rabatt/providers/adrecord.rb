@@ -23,6 +23,7 @@ module Rabatt
             v.expires_on = parse_date(item['to'])
             v.valid_from = parse_date(item['from'])
             v.url = item['url']
+            v.provider = :adrecord
           end
         end
       end

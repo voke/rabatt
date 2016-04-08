@@ -26,6 +26,7 @@ module Rabatt
             v.expires_on = epoch_to_date(data['endDate'])
             v.summary = data['description']
             v.url = data['landingUrl']
+            v.provider = :tradedoubler
           end
         end
       end

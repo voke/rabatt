@@ -61,6 +61,7 @@ module Rabatt
             v.terms = data['info4customer']
             v.valid_from = Date.parse(data['startDate'])
             v.expires_on = Date.parse(data['endDate'])
+            v.provider = :zanox
           end
         end
       end

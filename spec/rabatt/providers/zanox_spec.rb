@@ -19,6 +19,7 @@ describe Rabatt::Providers::Zanox do
       voucher.code.must_equal 'COMEAGAIN'
       voucher.valid_from.must_equal Date.parse("2016-04-11")
       voucher.expires_on.must_equal Date.parse("2016-04-17")
+      voucher.provider.must_equal :zanox
 
     end
 

@@ -19,6 +19,7 @@ describe Rabatt::Providers::Adtraction do
       voucher.code.must_equal 'COMEAGAIN'
       voucher.valid_from.must_equal Date.parse("2016-03-30")
       voucher.expires_on.must_equal Date.parse("2016-04-14")
+      voucher.provider.must_equal :adtraction
 
     end
 

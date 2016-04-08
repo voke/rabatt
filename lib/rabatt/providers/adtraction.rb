@@ -58,6 +58,7 @@ module Rabatt
             v.expires_on = Date.parse(data['validTo'])
             v.summary = data['offerDescription']
             v.terms = data['offerTerms']
+            v.provider = :adtraction
           end
         end
       end

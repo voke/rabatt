@@ -20,6 +20,7 @@ describe Rabatt::Providers::Adrecord do
       voucher.valid_from.must_equal Date.parse("2016-01-15")
       voucher.expires_on.must_equal Date.parse("2016-04-20")
       voucher.url.must_equal 'http://www.example.com'
+      voucher.provider.must_equal :adrecord
 
     end
 
