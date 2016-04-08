@@ -7,12 +7,12 @@ describe Rabatt::Providers::Adrecord do
       .to_return(body: Fixture.read(:adrecord), status: 200)
   end
 
-  describe '#coupons' do
+  describe '#vouchers' do
 
     it 'returns array of vouchers' do
 
       provider = Rabatt::Providers::Adrecord.new
-      voucher = provider.coupons(123).first
+      voucher = provider.vouchers.first
 
       voucher.program.must_equal 'Dunder mifflin'
       voucher.summary.must_equal "That's was she said"

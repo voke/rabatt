@@ -32,7 +32,11 @@ module Rabatt
         end
       end
 
-      def coupons(channel_id, market: DEFAULT_MARKET)
+      def vouchers
+        vouchers_by_channel(nil)
+      end
+
+      def vouchers_by_channel(channel_id, market: DEFAULT_MARKET)
 
         uri = URI.parse(ENDPOINT)
         header = { 'Content-Type' => 'application/json', 'X-Token' => self.api_key }

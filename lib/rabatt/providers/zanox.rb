@@ -1,12 +1,9 @@
-#
-# Zanox Web Services
-# http://wiki.zanox.com/en/Web_Services
-#
-
 require 'base64'
 require 'hmac-sha1'
 require 'open-uri'
 require 'json'
+
+# DOC: https://developer.zanox.com/web/guest/publisher-api-2011
 
 module Rabatt
   module Providers
@@ -26,7 +23,11 @@ module Rabatt
         self.secret_key = secret_key || ENV['ZANOX_SECRET_KEY']
       end
 
-      def coupons
+      def vouchers
+        vouchers_by_channel(nil)
+      end
+
+      def vouchers_by_channel(adspace_id)
 
         http_verb = 'GET'
         resource_path = '/incentives'
@@ -39,7 +40,8 @@ module Rabatt
         auth_header = "ZXWS" + " " + connect_id + ":" + signature
 
         endpoint = URI.parse(URL + resource_path)
-        endpoint.query = URI.encode_www_form(DEFAULT_PARAMS)
+        endpoint.query = URI.encode_www_form(
+          DEFAULT_PARAMS.merge(adspace: adspace_id))
 
         res = open(endpoint, { 'Authorization' => auth_header,
           'Date' => timestamp, 'nonce' => nonce })

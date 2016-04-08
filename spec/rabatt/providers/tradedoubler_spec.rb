@@ -12,7 +12,7 @@ describe Rabatt::Providers::Tradedoubler do
     it 'returns array of vouchers' do
 
       provider = Rabatt::Providers::Tradedoubler.new
-      voucher = provider.coupons('<token>').first
+      voucher = provider.vouchers_by_channel('<token>').first
 
       voucher.program.must_equal 'Dunder mifflin'
       voucher.summary.must_equal "That's was she said"

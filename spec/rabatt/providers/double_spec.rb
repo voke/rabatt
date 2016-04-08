@@ -7,12 +7,22 @@ describe Rabatt::Providers::Double do
       .to_return(body: Fixture.read(:double), status: 200)
   end
 
-  describe '#coupons' do
+  describe '#vouchers_by_channel' do
+
+    it 'returns vouchers for given channel' do
+      provider = Rabatt::Providers::Double.new
+      vouchers = provider.vouchers_by_channel(123)
+      vouchers.size.must_equal 1
+    end
+
+  end
+
+  describe '#vouchers' do
 
     it 'returns array of vouchers' do
 
       provider = Rabatt::Providers::Double.new
-      voucher = provider.coupons.first
+      voucher = provider.vouchers.first
 
       voucher.program.must_equal 'Dunder mifflin'
       voucher.summary.must_equal "That's was she said"

@@ -20,7 +20,11 @@ module Rabatt
         Time.at(value.to_i / 1000.0).to_date
       end
 
-      def coupons(token)
+      def vouchers
+        raise NotImplementedError
+      end
+
+      def vouchers_by_channel(token)
         uri = URI.parse(ENDPOINT % token)
         uri.query = URI.encode_www_form(DEFAULT_PARAMS)
         res = open(uri)

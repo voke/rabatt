@@ -16,7 +16,15 @@ module Rabatt
         raise(ArgumentError, 'Missing ApiKey') unless self.api_key
       end
 
-      def coupons
+      def vouchers_by_channel(channel_id)
+        vouchers.select do |voucher|
+          voucher.payload['tracking'].find do |entry|
+            entry['channel'] == channel_id
+          end
+        end
+      end
+
+      def vouchers
         res = open(ENDPOINT, 'Authorization' => "Token #{api_key}")
         JSON.parse(res.read).map do |data|
           Voucher.build do |v|
@@ -25,6 +33,7 @@ module Rabatt
             v.valid_from = Date.parse(data['start_date'])
             v.expires_at = Date.parse(data['end_date'])
             v.summary = data['description']
+            v.payload = data
           end
         end
       end

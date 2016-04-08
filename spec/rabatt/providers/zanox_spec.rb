@@ -7,12 +7,12 @@ describe Rabatt::Providers::Zanox do
       .to_return(body: Fixture.read(:zanox), status: 200)
   end
 
-  describe '#coupons' do
+  describe '#vouchers' do
 
     it 'returns array of vouchers' do
 
       provider = Rabatt::Providers::Zanox.new
-      voucher = provider.coupons.first
+      voucher = provider.vouchers.first
 
       voucher.program.must_equal 'Kwik-E-Mart'
       voucher.summary.must_equal "Oh, Calcutta!"
