@@ -6,15 +6,13 @@
 require 'base64'
 require 'hmac-sha1'
 require 'open-uri'
-require 'excon'
 require 'json'
 
 module Rabatt
   module Providers
     class Zanox < Base
 
-      HOST = 'http://api.zanox.com'
-      API_PATH = '/json/2011-03-01'
+      URL = 'http://api.zanox.com/json/2011-03-01'
 
       DEFAULT_PARAMS = {
         incentiveType: 'coupons',
@@ -28,36 +26,25 @@ module Rabatt
         self.secret_key = secret_key || ENV['ZANOX_SECRET_KEY']
       end
 
-      def conn
-        @conn ||= Excon.new(HOST)
-      end
-
       def coupons
 
         http_verb = 'GET'
-        uri = '/incentives'
+        resource_path = '/incentives'
 
         timestamp = get_timestamp
         nonce = generate_nonce
-        string2sign = http_verb + uri + timestamp + nonce
+        string2sign = http_verb + resource_path + timestamp + nonce
 
         signature = create_signature(secret_key, string2sign)
-
-        # Authorization using querystring-parameters (Alternative to Authorization-Header)
-        build_url = API_PATH + uri
-
         auth_header = "ZXWS" + " " + connect_id + ":" + signature
 
-        res = conn.request(
-          expects: [200],
-          method: :get,
-          path: build_url,
-          query: DEFAULT_PARAMS,
-          headers: { 'Authorization' => auth_header,
-            'Date' => timestamp, 'nonce' => nonce }
-        )
+        endpoint = URI.parse(URL + resource_path)
+        endpoint.query = URI.encode_www_form(DEFAULT_PARAMS)
 
-        parse(res.body)
+        res = open(endpoint, { 'Authorization' => auth_header,
+          'Date' => timestamp, 'nonce' => nonce })
+
+        parse(res.read)
 
       end
 
