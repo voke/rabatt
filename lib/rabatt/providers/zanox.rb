@@ -40,8 +40,13 @@ module Rabatt
         auth_header = "ZXWS" + " " + connect_id + ":" + signature
 
         endpoint = URI.parse(URL + resource_path)
+
+        request_params = DEFAULT_PARAMS.merge(
+          adspace: adspace_id
+        ).reject { |k,v| v.nil? }
+
         endpoint.query = URI.encode_www_form(
-          DEFAULT_PARAMS.merge(adspace: adspace_id))
+          request_params)
 
         res = open(endpoint, { 'Authorization' => auth_header,
           'Date' => timestamp, 'nonce' => nonce })
