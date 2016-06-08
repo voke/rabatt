@@ -1,0 +1,30 @@
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="https://ws.tradetracker.com/soap/affiliate" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+  <SOAP-ENV:Body>
+    <ns1:getMaterialIncentiveVoucherItemsResponse>
+      <materialItems SOAP-ENC:arrayType="ns1:MaterialItem[7]" xsi:type="ns1:MaterialItems">
+        <item xsi:type="ns1:MaterialItem">
+          <ID xsi:type="xsd:nonNegativeInteger">123456</ID>
+          <campaign xsi:type="ns1:Campaign">
+            <ID xsi:type="xsd:nonNegativeInteger">12345</ID>
+            <name xsi:type="xsd:string">dunder-mifflin.com</name>
+            <URL xsi:type="xsd:normalizedString">http://www.example.com/campaign</URL>
+            <info xsi:nil="true"/>
+          </campaign>
+          <name xsi:type="xsd:string">Get some free paper!</name>
+          <creationDate xsi:type="xsd:dateTime">2016-04-18T15:22:41+02:00</creationDate>
+          <modificationDate xsi:nil="true"/>
+          <materialBannerDimension xsi:nil="true"/>
+          <referenceSupported xsi:type="xsd:boolean">true</referenceSupported>
+          <description xsi:type="xsd:string">This code gives 10% discount on all products</description>
+          <conditions xsi:nil="true"/>
+          <validFromDate xsi:type="xsd:date">2016-04-18</validFromDate>
+          <validToDate xsi:type="xsd:date">2016-07-18</validToDate>
+          <discountFixed xsi:type="xsd:decimal">0.00</discountFixed>
+          <discountVariable xsi:type="xsd:decimal">10.00</discountVariable>
+          <voucherCode xsi:type="xsd:string">FREEPAPER</voucherCode>
+          <code xsi:type="xsd:string">...escaped html...</code>
+        </item>
+      </materialItems>
+    </ns1:getMaterialIncentiveVoucherItemsResponse>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

@@ -5,7 +5,8 @@ describe Rabatt do
   describe '.providers' do
 
     it 'returns Hash of providers' do
-      expected_providers = %w(adtraction double adrecord tradedoubler zanox)
+      expected_providers = %w(adtraction double adrecord tradedoubler
+      zanox tradetracker)
       Rabatt.providers.keys.must_equal(expected_providers)
     end
 
