@@ -18,9 +18,10 @@ module Rabatt
         raise(ArgumentError, 'Missing ApiKey') unless self.api_key
       end
 
-      def vouchers
+      def vouchers(options = {})
         uri = URI.parse(URL)
-        uri.query = URI.encode_www_form(DEFAULT_PARAMS.merge(key: api_key))
+        params = DEFAULT_PARAMS.merge(**options, key: api_key)
+        uri.query = URI.encode_www_form(params)
         res = open(uri)
         JSON.parse(res.read).map do |data|
           Voucher.build do |v|
