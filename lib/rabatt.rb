@@ -1,4 +1,4 @@
-require "rabatt/version"
+require 'rabatt/version'
 require 'rabatt/voucher'
 
 module Rabatt

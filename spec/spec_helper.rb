@@ -1,9 +1,10 @@
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 require 'rabatt'
 
-require "minitest/autorun"
-require "mocha"
-require "minitest/reporters"
+require 'minitest/autorun'
+require 'mocha'
+require 'mocha/mini_test'
+require 'minitest/reporters'
 require 'webmock/minitest'
 
 Minitest::Reporters.use!
