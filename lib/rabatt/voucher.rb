@@ -11,7 +11,7 @@ module Rabatt
     end
 
     def code?
-      code && !code.empty?
+      !!code && !code.empty?
     end
 
     def attributes
