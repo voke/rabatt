@@ -7,7 +7,7 @@ describe Rabatt::Providers::Tradedoubler do
       .to_return(body: Fixture.read(:tradedoubler), status: 200)
   end
 
-  describe '#coupons' do
+  describe '#vouchers' do
 
     it 'returns array of vouchers' do
 
