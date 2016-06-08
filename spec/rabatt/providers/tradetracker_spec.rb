@@ -5,7 +5,7 @@ describe Rabatt::Providers::Tradetracker do
   before do
   end
 
-  describe '#vouchers' do
+  describe '#vouchers_by_channel' do
 
     it 'returns array of vouchers' do
 
