@@ -1,0 +1,17 @@
+[{
+    "code": "FREEPAPER",
+    "programId": 8229,
+    "type": "generic",
+    "startDate": "2016-06-06T00:00:00+01:00",
+    "expiryDate": "2016-06-30T23:59:59+01:00",
+    "commissionType": "default",
+    "description": "That's was she said",
+    "destinationUrl": "http:\/\/eu.example.com\/",
+    "trackingUrl": "http:\/\/track.webgains.com\/click.html?wgcampaignid=123456&wgprogramid=1234",
+    "discount": "15% off 60\u20ac",
+    "program_name": "Dunder mifflin",
+    "network": "SE",
+    "currency": "SEK",
+    "id": 123456,
+    "commissionValueFormatted": "Default"
+}]
