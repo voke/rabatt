@@ -14,6 +14,7 @@ describe Rabatt::Providers::Tradedoubler do
       provider = Rabatt::Providers::Tradedoubler.new
       voucher = provider.vouchers_by_channel('<token>').first
 
+      voucher.uid.must_equal 123456
       voucher.program.must_equal 'Dunder mifflin'
       voucher.summary.must_equal "That's was she said"
       voucher.code.must_equal 'FREEPAPER'

@@ -53,6 +53,7 @@ module Rabatt
         parser = Saxerator.parser(get_vouchers_xml(site_id))
         parser.for_tag(:item).map do |data|
           Voucher.build do |v|
+            v.uid = data['ID'].to_i
             v.program = data['campaign']['name']
             v.code = data['voucherCode']
             v.valid_from = Date.parse(data['validFromDate'])

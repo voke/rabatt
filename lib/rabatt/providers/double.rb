@@ -28,6 +28,7 @@ module Rabatt
         res = open(ENDPOINT, 'Authorization' => "Token #{api_key}")
         JSON.parse(res.read).map do |data|
           Voucher.build do |v|
+            v.uid = data['id']
             v.program = data['program_name']
             v.code = data['code']
             v.valid_from = Date.parse(data['start_date'])

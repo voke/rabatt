@@ -14,6 +14,7 @@ describe Rabatt::Providers::Adrecord do
       provider = Rabatt::Providers::Adrecord.new
       voucher = provider.vouchers.first
 
+      voucher.uid.must_equal nil
       voucher.program.must_equal 'Dunder mifflin'
       voucher.summary.must_equal "That's was she said"
       voucher.code.must_equal 'FREEPAPER'

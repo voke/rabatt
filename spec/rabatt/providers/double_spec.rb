@@ -24,6 +24,7 @@ describe Rabatt::Providers::Double do
       provider = Rabatt::Providers::Double.new
       voucher = provider.vouchers.first
 
+      voucher.uid.must_equal 111
       voucher.program.must_equal 'Dunder mifflin'
       voucher.summary.must_equal "That's was she said"
       voucher.code.must_equal 'FREEPAPER'

@@ -16,6 +16,7 @@ describe Rabatt::Providers::Tradetracker do
 
       voucher = provider.vouchers_by_channel('<token>').first
 
+      voucher.uid.must_equal 123456
       voucher.program.must_equal 'dunder-mifflin.com'
       voucher.summary.must_equal "This code gives 10% discount on all products"
       voucher.code.must_equal 'FREEPAPER'

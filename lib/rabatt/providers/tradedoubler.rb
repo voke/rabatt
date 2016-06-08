@@ -20,6 +20,7 @@ module Rabatt
         res = open(uri)
         JSON.parse(res.read).map do |data|
           Voucher.build do |v|
+            v.uid = data['id']
             v.program = data['programName']
             v.code = data['code']
             v.valid_from = epoch_to_date(data['startDate'])

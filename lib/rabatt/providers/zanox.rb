@@ -60,6 +60,7 @@ module Rabatt
       def parse(payload)
         JSON.parse(payload)['incentiveItems']['incentiveItem'].map do |data|
           Voucher.build do |v|
+            v.uid = data['@id'].to_i
             v.summary = data['name']
             v.code = data['couponCode']
             v.program = data['program']['$']

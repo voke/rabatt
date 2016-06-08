@@ -14,6 +14,7 @@ describe Rabatt::Providers::Zanox do
       provider = Rabatt::Providers::Zanox.new
       voucher = provider.vouchers.first
 
+      voucher.uid.must_equal 712773
       voucher.program.must_equal 'Kwik-E-Mart'
       voucher.summary.must_equal "Oh, Calcutta!"
       voucher.code.must_equal 'COMEAGAIN'

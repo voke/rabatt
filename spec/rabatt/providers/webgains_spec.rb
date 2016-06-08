@@ -14,6 +14,7 @@ describe Rabatt::Providers::Webgains do
       provider = Rabatt::Providers::Webgains.new
       voucher = provider.vouchers.first
 
+      voucher.uid.must_equal 123456
       voucher.program.must_equal 'Dunder mifflin'
       voucher.summary.must_equal "That's was she said"
       voucher.code.must_equal 'FREEPAPER'
