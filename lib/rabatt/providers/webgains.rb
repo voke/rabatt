@@ -15,7 +15,7 @@ module Rabatt
 
       def initialize(api_key = nil)
         self.api_key = api_key || ENV['WEBGAINS_API_KEY']
-        raise(ArgumentError, 'Missing ApiKey') unless self.api_key
+        raise(ArgumentError, "Missing Webgains ApiKey") unless self.api_key
       end
 
       def vouchers(options = {})

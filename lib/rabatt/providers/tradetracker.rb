@@ -13,8 +13,8 @@ module Rabatt
       def initialize(user_id = nil, api_key = nil)
         self.user_id = user_id || ENV['TRADETRACKER_USER_ID']
         self.api_key = api_key || ENV['TRADETRACKER_API_KEY']
-        raise(ArgumentError, 'Missing ApiKey') unless self.api_key
-        raise(ArgumentError, 'Missing UserId') unless self.user_id
+        raise(ArgumentError, 'Missing Tradetracker ApiKey') unless self.api_key
+        raise(ArgumentError, 'Missing Tradetracker UserId') unless self.user_id
       end
 
       def vouchers_by_channel(channel)

@@ -13,7 +13,7 @@ module Rabatt
 
       def initialize(api_key = nil)
         self.api_key = api_key || ENV['DOUBLE_API_KEY']
-        raise(ArgumentError, 'Missing ApiKey') unless self.api_key
+        raise(ArgumentError, 'Missing Double ApiKey') unless self.api_key
       end
 
       def vouchers_by_channel(channel_id)
