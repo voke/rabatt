@@ -21,6 +21,8 @@ module Rabatt
       def initialize(connect_id = nil, secret_key = nil)
         self.connect_id = connect_id || ENV['ZANOX_CONNECT_ID']
         self.secret_key = secret_key || ENV['ZANOX_SECRET_KEY']
+        raise(ArgumentError, 'Missing Zanox ConnectId') unless self.connect_id
+        raise(ArgumentError, 'Missing Zanox SecretKey') unless self.secret_key
       end
 
       def vouchers
