@@ -10,7 +10,8 @@
     "validTo": "2016-04-10T00:00:00+0200",
     "offerPage": "http://www.example.com/campaign",
     "trackingURL": "https://track.adtraction.com/t/t?a=12345&as=6789&t=2&tk=1",
-    "offerType": 2
+    "offerType": 2,
+    "offerId": 1234567890
   },
   {
     "programName": "Kwik-E-Mart",
@@ -24,6 +25,7 @@
     "validTo": "2016-04-14T00:00:00+0200",
     "offerTerms": "Silly customer, you cannot hurt a Twinkie",
     "trackingURL": "https://track.adtraction.com/t/t?a=54321&as=9876&t=2&tk=1",
-    "offerType": 1
+    "offerType": 1,
+    "offerId": 123456
   }
 ]

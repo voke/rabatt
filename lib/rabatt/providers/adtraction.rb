@@ -52,6 +52,7 @@ module Rabatt
       def parse(payload)
         payload.map do |data|
           Voucher.build do |v|
+            v.uid = data['offerId'].to_s
             v.program = data['programName']
             v.code = data['offerCoupon']
             v.valid_from = Date.parse(data['validFrom'])

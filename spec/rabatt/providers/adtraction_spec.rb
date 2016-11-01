@@ -14,7 +14,7 @@ describe Rabatt::Providers::Adtraction do
       provider = Rabatt::Providers::Adtraction.new
       voucher = provider.vouchers.last
 
-      voucher.uid.must_equal nil
+      voucher.uid.must_equal '123456'
       voucher.program.must_equal 'Kwik-E-Mart'
       voucher.summary.must_equal "Oh, Calcutta!"
       voucher.code.must_equal 'COMEAGAIN'
