@@ -17,6 +17,7 @@ module Rabatt
         parser = Saxerator.parser(res.read)
         parser.for_tag(:discountcode).map do |item|
           Voucher.build do |v|
+            v.uid = item['id']
             v.program = item['program']
             v.summary = item['description']
             v.code = item['code']
