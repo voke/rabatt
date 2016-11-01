@@ -7,7 +7,7 @@ TODO: Delete this and the text above, and describe your gem
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'rabatt'
+gem 'rabatt', github: 'voke/rabatt'
 ```
 
 And then execute:
