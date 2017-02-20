@@ -35,6 +35,7 @@ module Rabatt
             v.expires_on = Date.parse(data['end_date'])
             v.summary = data['description']
             v.payload = data
+            v.url = data['tracking'][0]['url']
             v.provider = :double
           end
         end
